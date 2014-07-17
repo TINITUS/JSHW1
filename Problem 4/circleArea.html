@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Circle Area</title>
+    <style>
+        body{
+            font-size: 5px;
+        }
+        .controls{
+            width: 400px;
+        }
+        #radius{
+            width: 80px;
+            outline: 0;
+            border: none;
+            font-size: 12px;
+            text-align: right;
+        }
+        #radius:focus{
+            background-color:lightgray;
+        }
+        #circle{
+            border-radius: 50%;
+            width:  1.1em;
+            height: 1.1em;
+            background-color: tomato;
+            background-image: linear-gradient(-45deg,
+            rgba(255, 255, 255, .2) 5%,
+            transparent 5%, transparent 10%,
+            rgba(255, 255, 255, .2) 10%, rgba(255, 255, 255, .2) 15%,
+            transparent 15%, transparent 20%,
+            rgba(255, 255, 255, .2) 20%, rgba(255, 255, 255, .2) 25%,
+            transparent 25%, transparent 30%,
+            rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 35%,
+            transparent 35%, transparent 40%,
+            rgba(255, 255, 255, .2) 40%, rgba(255, 255, 255, .2) 45%,
+            transparent 45%, transparent 50%,
+            rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 55%,
+            transparent 55%, transparent 60%,
+            rgba(255, 255, 255, .2) 60%, rgba(255, 255, 255, .2) 65%,
+            transparent 65%, transparent 70%,
+            rgba(255, 255, 255, .2) 70%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent 80%,
+            rgba(255, 255, 255, .2) 80%, rgba(255, 255, 255, .2) 85%,
+            transparent 85%, transparent 90%,
+            rgba(255, 255, 255, .2) 90%, rgba(255, 255, 255, .2) 95%,
+            transparent 95%,transparent );
+            text-align: center;
+            position: relative;
+            margin: auto;
+        }
+        #textRadius{
+            position: relative;
+            font-size: 12px;
+            display: block;
+            top: 0;
+            border-bottom: 1px black solid;
+            margin: 10% 0 10% 0;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function calcCircleArea(r){
+            var circle = document.getElementById("circle")
+                circle.style.width = (r*2) +'px';
+                circle.style.height = (r*2) +'px';
+
+            var res = Math.PI * Math.pow(r,2);
+            document.getElementById("res").innerHTML = "; area = " + res;
+        }
+
+    </script>
+</head>
+<body>
+<div class="controls" onload="calcCircleArea(1)">
+    <div id="textRadius">r = <input type="number" id="radius" value="1.1" min="0.1" step="0.1" onChange="calcCircleArea(this.value);"/><span id="res"></span></div>
+    <div class="visuals">
+        <div id="circle"></div>
+    </div>
+</div>
+</body>
+</html>
